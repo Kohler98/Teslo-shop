@@ -8,7 +8,7 @@
 
 # testing
 /coverage
-
+/src/seed
 # next.js
 /.next/
 /out/
