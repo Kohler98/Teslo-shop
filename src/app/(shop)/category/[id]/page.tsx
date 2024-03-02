@@ -14,6 +14,7 @@ export default function CategoryPage({params}:Props) {
   // if(id == 'kids'){
   //   notFound()
   // }
+ 
   const labels:Record<Category,string> = {
     'men': 'Hombres',
     'women': 'Mujeres',
@@ -27,8 +28,8 @@ export default function CategoryPage({params}:Props) {
       subTitle={`Todos los productos para ${labels[id]}`}
       className="mb-2"
     />
-      <ProductGrid
-        products={products}/>
+      {/* <ProductGrid
+        products={products}/> */}
       
     </>
   );
