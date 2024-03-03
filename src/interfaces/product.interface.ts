@@ -26,6 +26,7 @@ export interface Checkout{
     subTotal:number;
     totalItems:number;
 }
+
 export type Category =  'men'|'women'|'kid'|'unisex';
 export type Size = 'XS'|'S'|'M'|'L'|'XL'|'XXL'|'XXXL';
 export type ValidType = 'shirts'|'pants'|'hoodies'|'hats';
