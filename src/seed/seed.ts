@@ -25,6 +25,7 @@ interface SeedData {
     products: SeedProduct[];
     categories: string[];
     users:SeedUser[];
+ 
 }
 
 
