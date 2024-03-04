@@ -1,3 +1,11 @@
+export { getUserAddress } from './address/get-user-address'
+
+export { deleteUserAddress } from './address/delete-user-address'
+
+export { setUserAddress } from './address/set-user-address'
+
+export * from './country/get-country'
+
 export * from './auth/login'
 export * from './auth/logout'
 export * from './auth/register'
