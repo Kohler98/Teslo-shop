@@ -23,7 +23,7 @@ interface Props {
   orderItems: OrderItem[];
 }
 export const ProductsInCart = ({ orderItems }: Props) => {
-  console.log(orderItems)
+ 
   return (
     <>
       {orderItems.map((orderItem) => (
