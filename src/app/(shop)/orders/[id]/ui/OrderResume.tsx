@@ -78,7 +78,7 @@ export const OrderResume = ({ orderAddress, checkout }: Props) => {
         )}
       >
         <IoCardOutline size={30} />
-        <span className="mx-2">Pendiente de pago</span>
+        <span className="mx-2">{checkout.isPaid ? 'Pagado' : 'Pendiente'}</span>
       </div>
     </div>
   );

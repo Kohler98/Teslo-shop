@@ -35,7 +35,7 @@ export const OrderTable = ({ order }: Props) => {
                 "text-green-800":order.isPaid,
                 "text-red-800": !order.isPaid
             })
-          }>{order.isPaid ? 'Pagada' : 'Pendiente'}</span>
+          }>{order.isPaid ? 'Pagado' : 'Pendiente'}</span>
         </td>
         <td className="text-sm text-gray-900 font-light px-6 ">
           <Link href={`/orders/${order.id}`} className="hover:underline">
