@@ -15,7 +15,7 @@ interface Props {
   order: Order;
 }
 export const OrderTable = ({ order }: Props) => {
-    console.log(order)
+ 
   return (
     <>
       <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
