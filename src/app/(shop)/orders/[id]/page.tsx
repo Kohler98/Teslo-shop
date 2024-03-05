@@ -7,6 +7,7 @@ import { ProductsInCart } from "./ui/ProductsInCart";
 import { getOrderById } from "@/app/actions";
 import { auth } from "@/auth.config";
 import { notFound, redirect } from "next/navigation";
+import { IsPaid } from './ui/IsPaid';
 
 interface Props {
   params: {
@@ -35,18 +36,7 @@ export default async function OrderPage({ params }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
           {/* carrito */}
           <div className="flex flex-col mt-5">
-            <div
-              className={clsx(
-                "flex items-center rounded-lg py-2 px-3.5 text-xs font-bold text-white mb-5",
-                {
-                  "bg-red-500": !rest.isPaid,
-                  "bg-green-700": rest.isPaid,
-                }
-              )}
-            >
-              <IoCardOutline size={30} />
-              <span className="mx-2">{rest.isPaid ? 'Pagado' : 'Pendiente'}</span>
-            </div>
+          <IsPaid isPaid={rest.isPaid}/>
 
             {/* items */}
             <ProductsInCart orderItems={OrderItem} />

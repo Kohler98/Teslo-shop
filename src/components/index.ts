@@ -1,4 +1,6 @@
-export { Provider } from "./provider/Provider";
+export { PaypalButton } from "./paypal/PaypalButton";
+
+export { Providers } from "./providers/Providers";
 
 export { StockLabel } from "./product/stock-label/StockLabel";
 
