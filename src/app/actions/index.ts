@@ -1,3 +1,7 @@
+export { paypalCheckPayment } from './payments/paypal-check-payments'
+
+export { setTransactionById } from './payments/set-transactions-by-id'
+
 export { getOrdersByUser } from './order/get-orders-by-users'
 
 export { getOrderById } from './order/get-order-by-id'

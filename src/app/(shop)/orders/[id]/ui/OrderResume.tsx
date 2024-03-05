@@ -1,8 +1,10 @@
 "use client";
-import clsx from "clsx";
+
 import React from "react";
-import { IoCardOutline } from "react-icons/io5";
+
 import { currencyFormat } from "../../../../utils/currencyFormat";
+import { PaypalButton } from "@/components";
+import { IsPaid } from "./IsPaid";
 
 type Checkout = {
   id: string;
@@ -68,17 +70,12 @@ export const OrderResume = ({ orderAddress, checkout }: Props) => {
           {currencyFormat(checkout.total)}
         </span>
       </div>
-      <div
-        className={clsx(
-          "flex items-center rounded-lg py-2 mt-6 px-3.5 text-xs font-bold text-white mb-5",
-          {
-            "bg-red-500": !checkout.isPaid,
-            "bg-green-700": checkout.isPaid,
-          }
+      <div className="mt-5 text-2xl text-right">
+        {checkout.isPaid ? (
+          <IsPaid isPaid={checkout.isPaid} />
+        ) : (
+          <PaypalButton amount={checkout!.total} orderId={checkout!.id} />
         )}
-      >
-        <IoCardOutline size={30} />
-        <span className="mx-2">{checkout.isPaid ? 'Pagado' : 'Pendiente'}</span>
       </div>
     </div>
   );
