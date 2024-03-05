@@ -23,7 +23,7 @@ interface Props {
   orderItems: OrderItem[];
 }
 export const ProductsInCart = ({ orderItems }: Props) => {
- 
+  console.log(orderItems)
   return (
     <>
       {orderItems.map((orderItem) => (
@@ -41,8 +41,9 @@ export const ProductsInCart = ({ orderItems }: Props) => {
           />
 
           <div>
-            <p>{orderItem.product.title}</p>
-            <p>{currencyFormat(orderItem.price)}</p>
+            <p>{orderItem.product.title} </p>
+            <p>{currencyFormat(orderItem.price)} X {orderItem.quantity}</p>
+            <p className="font-bold">Subtotal: {currencyFormat(orderItem.price * orderItem.quantity)}</p>
           </div>
         </div>
       ))}

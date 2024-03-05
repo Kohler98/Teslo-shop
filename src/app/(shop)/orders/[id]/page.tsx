@@ -26,7 +26,7 @@ export default async function OrderPage({ params }: Props) {
     notFound();
   }
   const { OrderItem, OrderAddress, ...rest } = order.order;
-  console.log({ rest });
+ 
   return (
     <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
       <div className="flex flex-col w-[1000px]">
@@ -45,7 +45,7 @@ export default async function OrderPage({ params }: Props) {
               )}
             >
               <IoCardOutline size={30} />
-              <span className="mx-2">Pendiente de pago</span>
+              <span className="mx-2">{rest.isPaid ? 'Pagado' : 'Pendiente'}</span>
             </div>
 
             {/* items */}

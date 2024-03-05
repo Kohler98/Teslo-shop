@@ -15,7 +15,7 @@ interface Props {
   order: Order;
 }
 export const OrderTable = ({ order }: Props) => {
-    console.log(order)
+ 
   return (
     <>
       <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -35,7 +35,7 @@ export const OrderTable = ({ order }: Props) => {
                 "text-green-800":order.isPaid,
                 "text-red-800": !order.isPaid
             })
-          }>{order.isPaid ? 'Pagada' : 'Pendiente'}</span>
+          }>{order.isPaid ? 'Pagado' : 'Pendiente'}</span>
         </td>
         <td className="text-sm text-gray-900 font-light px-6 ">
           <Link href={`/orders/${order.id}`} className="hover:underline">
