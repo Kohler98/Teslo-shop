@@ -7,8 +7,10 @@ interface State {
   addProductToCart: (product: CartProduct) => void;
   getTotalItems: () => number;
   getSummaryInformation: () => Checkout;
-  updateProductToCart: (product:CartProduct,quantity: number) => void
-  removeProductToCart:(product:CartProduct) => void
+  updateProductToCart: (product: CartProduct, quantity: number) => void;
+  removeProductToCart: (product: CartProduct) => void;
+
+  clearCart: () => void;
 }
 
 export const useCartStore = create<State>()(
@@ -17,16 +19,27 @@ export const useCartStore = create<State>()(
       cart: [],
 
       getTotalItems: () => {
-        const {cart} = get()
+        const { cart } = get();
 
-        return cart.reduce((total, item)=> total+ item.quantity,0)
+        return cart.reduce((total, item) => total + item.quantity, 0);
       },
-      getSummaryInformation : () =>{
-        const {cart} = get()
-        const totalItems = cart.reduce((total, item)=> total+ item.quantity,0)
-        const subTotal = (cart.reduce((subtotal, item)=> subtotal+ (item.price*item.quantity),0))*0.15
-        const total =  (cart.reduce((subtotal, item)=> subtotal+ (item.price*item.quantity),0) ) + subTotal
-        return {totalItems,subTotal,total}
+      getSummaryInformation: () => {
+        const { cart } = get();
+        const totalItems = cart.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        const subTotal =
+          cart.reduce(
+            (subtotal, item) => subtotal + item.price * item.quantity,
+            0
+          ) * 0.15;
+        const total =
+          cart.reduce(
+            (subtotal, item) => subtotal + item.price * item.quantity,
+            0
+          ) + subTotal;
+        return { totalItems, subTotal, total };
       },
       // method
       addProductToCart: (product: CartProduct) => {
@@ -54,31 +67,32 @@ export const useCartStore = create<State>()(
 
         set({ cart: updateCartProducts });
       },
-      updateProductToCart: (product:CartProduct,quantity:number)=>{
- 
+      updateProductToCart: (product: CartProduct, quantity: number) => {
         const { cart } = get();
         const updateCartProducts = cart.map((item) => {
-            if (item.id === product.id && item.size === product.size) {
-              return { ...item, quantity: quantity};
-            }
-  
-            return item;
-          });
+          if (item.id === product.id && item.size === product.size) {
+            return { ...item, quantity: quantity };
+          }
 
-          set({ cart: updateCartProducts });
- 
+          return item;
+        });
+
+        set({ cart: updateCartProducts });
       },
-      removeProductToCart: (product:CartProduct)=>{
+      removeProductToCart: (product: CartProduct) => {
         const { cart } = get();
 
-        const removeCartProduct = cart.filter((item) => item.id !== product.id || item.size !== product.size)
+        const removeCartProduct = cart.filter(
+          (item) => item.id !== product.id || item.size !== product.size
+        );
         set({ cart: removeCartProduct });
-
-      }
+      },
+      clearCart: () => {
+        set({ cart: [] });
+      },
     }),
     {
       name: "shopping-cart",
-      
     }
   )
 );

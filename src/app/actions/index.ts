@@ -1,3 +1,9 @@
+export { getOrdersByUser } from './order/get-orders-by-users'
+
+export { getOrderById } from './order/get-order-by-id'
+
+export * from './order/place-order'
+
 export { getUserAddress } from './address/get-user-address'
 
 export { deleteUserAddress } from './address/delete-user-address'
@@ -15,4 +21,3 @@ export * from './product/get-stock-by-slug'
 export * from './product/get-producto-by-slug'
 
 export * from './product/product-pagination'
-
