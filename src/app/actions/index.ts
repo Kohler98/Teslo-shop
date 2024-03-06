@@ -1,3 +1,15 @@
+export { deleteProductImage } from './product/delete-product-image'
+
+export { createUpdateProduct } from './product/create-update-product'
+
+export { getCategories } from './product/get-categories-of-products'
+
+export { changeUserRole } from './users/change-user-role'
+
+export { getPaginatedUsers } from './users/get-paginated-users'
+
+export { getPaginatedOrders } from './order/get-paginated-orders'
+
 export { paypalCheckPayment } from './payments/paypal-check-payments'
 
 export { setTransactionById } from './payments/set-transactions-by-id'

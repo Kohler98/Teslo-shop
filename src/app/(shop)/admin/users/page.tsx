@@ -1,24 +1,26 @@
 // https://tailwindcomponents.com/component/hoverable-table
-import { getOrdersByUser } from "@/app/actions";
+import {  getPaginatedUsers } from "@/app/actions";
 import { auth } from "@/auth.config";
-import { Title } from "@/components";
-
-import Link from "next/link";
+import { Pagination, Title } from "@/components";
+ 
 import { redirect } from "next/navigation";
-import { IoCardOutline } from "react-icons/io5";
-import { OrderTable } from "./ui/OrderTable";
+ 
+import { UserTable } from "./ui/UserTable";
 
-export default async function OrdersPage () {
+export default async function UsersAdminPage() {
   const session = await auth();
   if (!session?.user) {
     // redirect('/auth/login?returnTo=perfil')
     redirect("/");
   }
-  const resp = await getOrdersByUser(session.user.id);
-  const orders = resp.order ?? [];
+  const resp = await getPaginatedUsers();
+  if(!resp.ok){
+    redirect("/");
+  }
+  const users = resp.users ?? [];
   return (
     <>
-      <Title title="Orders" />
+      <Title title="Mantenimiento de Usuarios" />
 
       <div className="mb-10">
         <table className="min-w-full">
@@ -28,7 +30,7 @@ export default async function OrdersPage () {
                 scope="col"
                 className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                #ID
+                Email
               </th>
               <th
                 scope="col"
@@ -40,22 +42,23 @@ export default async function OrdersPage () {
                 scope="col"
                 className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                Estado
+                Role
               </th>
               <th
                 scope="col"
                 className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                Opciones
+                Actualizar role
               </th>
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
-              <OrderTable key={order.id} order={order} />
+            {users.map((user) => (
+              <UserTable key={user.id} user={user} />
             ))}
           </tbody>
         </table>
+        <Pagination totalPage={3}/>
       </div>
     </>
   );

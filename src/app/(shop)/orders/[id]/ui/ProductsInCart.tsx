@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Size } from "@/interfaces";
 import { currencyFormat } from "@/app/utils";
+import { ProductImage } from "@/components";
 
 type url = {
   url: string;
@@ -28,7 +29,7 @@ export const ProductsInCart = ({ orderItems }: Props) => {
     <>
       {orderItems.map((orderItem) => (
         <div key={orderItem.product.slug} className="flex mb-5">
-          <Image
+          <ProductImage
             src={`/products/${orderItem.product.ProductImage[0].url}`}
             width={100}
             height={100}
