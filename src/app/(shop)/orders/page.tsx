@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import { IoCardOutline } from "react-icons/io5";
 import { OrderTable } from "./ui/OrderTable";
 
-export default async function () {
+export default async function OrdersPage () {
   const session = await auth();
   if (!session?.user) {
     // redirect('/auth/login?returnTo=perfil')

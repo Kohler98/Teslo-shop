@@ -12,7 +12,7 @@ interface Props {
     page?: string;
   };
 }
-export default async function ({searchParams}:Props) {
+export default async function ProductsAdminPage ({searchParams}:Props) {
 
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
   const { products,currentPage,totalPages } = await getPaganitedProductsWithImages({page});

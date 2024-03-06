@@ -10,15 +10,15 @@ interface Props {
 export const StockLabel = ({ slug }: Props) => {
   const [stock, setStock] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    getStock();
-  }, []);
 
-  const getStock = async () => {
-    const stock = await getStockBySlug(slug);
-    setStock(stock);
-    setIsLoading(false);
-  };
+  useEffect(() => {
+    const getStock = async () => {
+      const stock = await getStockBySlug(slug);
+      setStock(stock);
+      setIsLoading(false);
+    };
+    getStock();
+  }, [slug]);
   return (
     <>
       {isLoading ? (

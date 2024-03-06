@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
  
 import { UserTable } from "./ui/UserTable";
 
-export default async function () {
+export default async function UsersAdminPage() {
   const session = await auth();
   if (!session?.user) {
     // redirect('/auth/login?returnTo=perfil')

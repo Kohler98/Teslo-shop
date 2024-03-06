@@ -3,12 +3,12 @@ import { getPaginatedOrders } from "@/app/actions";
 import { auth } from "@/auth.config";
 import { Title } from "@/components";
 
-import Link from "next/link";
+ 
 import { redirect } from "next/navigation";
-import { IoCardOutline } from "react-icons/io5";
+ 
 import { OrderTable } from "./ui/OrderTable";
 
-export default async function () {
+export default async function OrderAdminPage () {
   const session = await auth();
   if (!session?.user) {
     // redirect('/auth/login?returnTo=perfil')

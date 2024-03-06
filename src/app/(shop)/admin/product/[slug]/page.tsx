@@ -9,7 +9,7 @@ interface Props{
     },
 
 }
-export default async function ProductPage({params}:Props) {
+export default async function ProductAdminPage({params}:Props) {
 
     const {slug} = params
     const resp = await getCategories()
