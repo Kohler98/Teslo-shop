@@ -117,16 +117,19 @@ export const Sidebar = () => {
 
             <SidebarItem
               title="Productos"
+              href="/admin/products"
               icon={<IoShirtOutline size={30} />}
               onClick={() => closeMenu()}
             />
             <SidebarItem
               title="Ordenes"
+              href="/admin/orders"
               icon={<IoTicketOutline size={30} />}
               onClick={() => closeMenu()}
             />
             <SidebarItem
               title="Usuarios"
+              href="/admin/users"
               icon={<IoPeopleOutline size={30} />}
               onClick={() => closeMenu()}
             />

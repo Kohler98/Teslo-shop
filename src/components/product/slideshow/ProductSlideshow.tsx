@@ -10,6 +10,7 @@ import "swiper/css/thumbs";
 import "./slideShow.css";
 import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
+import { ProductImage } from '../product-image/ProductImage';
 
 interface Props {
   images: string[];
@@ -21,12 +22,7 @@ export const ProductSlideShow = ({ images, title, className }: Props) => {
   return (
     <div className={className}>
       <Swiper
-        // style={
-        //   {
-        //     "--swiper-navigation-color": "#fff",
-        //     "--swiper-pagination-color": "#fff",
-        //   } as React.CSSProperties
-        // }
+ 
         spaceBetween={10}
         navigation={true}
         autoplay={{
@@ -40,9 +36,9 @@ export const ProductSlideShow = ({ images, title, className }: Props) => {
       >
         {images.map((image) => (
           <SwiperSlide key={image}>
-            <Image
+            <ProductImage
               alt={title}
-              src={`/products/${image}`}
+              src={`${image}`}
               width={1024}
               height={800}
               className="rounded-lg object-fill"
@@ -61,9 +57,9 @@ export const ProductSlideShow = ({ images, title, className }: Props) => {
       >
         {images.map((image) => (
           <SwiperSlide key={image}>
-            <Image
+            <ProductImage
               alt={title}
-              src={`/products/${image}`}
+              src={`${image}`}
               width={300}
               height={300}
               className="rounded-lg object-fill"
